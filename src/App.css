@@ -1,0 +1,112 @@
+body {
+  background: linear-gradient(45deg, #6A1B9A, #FF4081, #4CAF50, #2196F3
+);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+/* אנימציה לגוונים מתחלפים */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* כותרת */
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+/* הגדרת לוח המשחק */
+.board {
+  display: grid;
+  gap: 2px; /* רווח בין האריחים */
+  background-color: #ccc; /* צבע הרקע של הלוח */
+  grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* יצירת ריבועים אחידים */
+  grid-template-rows: repeat(auto-fill, minmax(40px, 1fr)); /* יצירת ריבועים אחידים */
+  width: 100%;
+  max-width: 450px; /* הגבלת רוחב הלוח */
+  margin: auto;
+}
+/* אריחים בסיסיים */
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #999;
+  cursor: pointer;
+  user-select: none;
+  background-color: #7A7A7A; /* צבע רקע מוסתר */
+  color: #000; /* צבע טקסט */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+/* אפקט לחיצה על האריח */
+.cell:hover {
+  transform: scale(1.1);
+}
+/* אריחים שנחשפו */
+.cell.revealed {
+  background-color: #E0E0E0;
+  border: 1px solid #bbb;
+  cursor: default; /* אין אפקט לחיצה */
+}
+/* מוקש שנחשף */
+.cell.revealed.mine {
+  background-color: red;
+  color: white;
+}
+/* דגל */
+.cell.flagged {
+  background-color: #FFCC00;
+  color: black;
+}
+/* אריחים לא נחשפו עם מוקש */
+.cell.mine {
+  background-color: #7A7A7A; /* צבע רגיל של מוקש מוסתר */
+}
+/* סגנון הקונטרולר */
+.controller {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* רווח בין האלמנטים */
+  margin-bottom: 20px;
+}
+/* סגנון כפתורים בקונטרולר */
+.controller button {
+  background-color: #a0e093;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+}
+.controller button:hover {
+  background-color: #0ce925;
+}
+/* סגנון הצגת סטטוס */
+.controller div {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
